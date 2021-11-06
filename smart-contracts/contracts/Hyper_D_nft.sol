@@ -13,7 +13,7 @@ contract HyperDimensionalNft is ERC721, ERC721Enumerable, Ownable {
 
     uint256 public constant MAX_SUPPLY = 10000;
     uint256 public constant MAX_PUBLIC_MINT = 10;
-    uint256 public constant PRICE_PER_TOKEN = 0.123 ether;
+    uint256 public constant PRICE_PER_TOKEN = 0.0318 ether;
 
     constructor() ERC721("Hyper Dimensional Symmetrical Object", "HYPERD") {}
 
@@ -28,7 +28,11 @@ contract HyperDimensionalNft is ERC721, ERC721Enumerable, Ownable {
         }
     }
 
-    function setBaseURI(string memory baseURI_) external onlyOwner() {
+    function setSaleState(bool newState) public onlyOwner {
+        saleIsActive = newState;
+    }
+
+    function setBaseURI(string memory baseURI_) external onlyOwner {
         _baseURIextended = baseURI_;
     }
 

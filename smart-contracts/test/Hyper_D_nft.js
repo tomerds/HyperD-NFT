@@ -1,7 +1,4 @@
-const {
-  expect,
-} = require('chai');
-const { BigNumber } = require('ethers');
+const { expect } = require('chai');
 
 describe('HyperDimensionalNft contract', () => {
   let NFT;
@@ -29,9 +26,36 @@ describe('HyperDimensionalNft contract', () => {
     });
   });
 
-  describe('Deployment', () => {
-    it('Minting 1 token requires 0.123 eth to be sent', async () => {
-      await hdNFT.mint();
+  describe('Pre Activation', () => {
+    it('Sale must be active in order to mint', async () => {
+      await expect(hdNFT.mint(1)).to.be.revertedWith('Sale must be active to mint tokens');
+    });
+
+    it('Minting is possible once sale activated', async () => {
+      await hdNFT.setSaleState(true);
+      const overrides = { value: ethers.utils.parseEther('0.123') };
+
+      await hdNFT.mint(1, overrides);
+
+      expect(await hdNFT.ownerOf(0)).to.equal(owner.address);
+    });
+  });
+
+  describe('Minting', () => {
+    beforeEach(async () => {
+      await hdNFT.setSaleState(true);
+    });
+
+    it('Minting is limited to 10', async () => {
+      let overrides = { value: ethers.utils.parseEther('1.243') };
+
+      await expect(hdNFT.mint(11, overrides)).to.revertedWith('Exceeded max token purchase');
+
+      overrides = { value: ethers.utils.parseEther('1.23') };
+
+      await hdNFT.mint(10, overrides);
+
+      expect(await hdNFT.balanceOf(owner.address)).to.equal(10);
     });
   });
 });
