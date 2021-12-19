@@ -303,7 +303,7 @@ def mathematician_picker(number):
 
 
 if __name__ == "__main__":
-    coefficients_dict = generate_coefficients_dict(2)
+    coefficients_dict = generate_coefficients_dict(10)
 
     metadata = build_up_metadata(coefficients_dict)
 
