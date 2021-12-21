@@ -3,10 +3,27 @@ import abi from "../smart-contract/abi.json";
 import { useEffect, useState } from "react";
 import { getEtherscanUrl, getOpenseaUrl } from "../libs/utils";
 
-const contract = "0xc7dc463dc36196aa725f14950967a01269ea436f";
+const rinkebyContract = process.env
+  .REACT_APP_CONTRACT_ADDRESS_RINKEBY as string;
+
+const mainnetContract = process.env
+  .REACT_APP_CONTRACT_ADDRESS_MAINNET as string;
 
 type HomeProps = {
   provider: any;
+};
+
+const getContract = async (provider: any): Promise<string> => {
+  const { chainId } = await provider.getNetwork();
+  console.log("chaidId", chainId);
+  let contract;
+  if (chainId === 4) {
+    contract = rinkebyContract;
+  } else {
+    contract = mainnetContract;
+  }
+
+  return contract;
 };
 
 const Home: React.FC<HomeProps> = ({ provider }) => {
@@ -20,6 +37,7 @@ const Home: React.FC<HomeProps> = ({ provider }) => {
 
   useEffect(() => {
     async function setCount() {
+      const contract = await getContract(provider);
       const nft = new ethers.Contract(contract, abi, provider);
       try {
         const supply = await nft.totalSupply();
@@ -56,6 +74,7 @@ const Home: React.FC<HomeProps> = ({ provider }) => {
       return;
     }
 
+    const contract = await getContract(provider);
     const nft = new ethers.Contract(contract, abi, signer);
     try {
       setMinting(true);
