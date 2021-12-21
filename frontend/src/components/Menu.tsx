@@ -7,6 +7,8 @@ type MenuProps = {
   provider: any;
 };
 
+const isLive = process.env.REACT_APP_IS_LIVE_ON_MAINNET;
+
 const Menu: React.FC<MenuProps> = ({ setProvider, provider }) => {
   const [error, setError] = useState<{
     error: Errors | null;
@@ -14,7 +16,11 @@ const Menu: React.FC<MenuProps> = ({ setProvider, provider }) => {
   }>({ error: null, message: null });
 
   const connect = async () => {
-    web3Connection("rinkeby", setError, setProvider);
+    web3Connection(
+      isLive === "true" ? "homestead" : "rinkeby",
+      setError,
+      setProvider
+    );
   };
 
   const connectMetamask = async () => {
@@ -62,6 +68,14 @@ const Menu: React.FC<MenuProps> = ({ setProvider, provider }) => {
             >
               {error.message}
             </a>
+          </div>
+        )}
+
+        {error.error === Errors.WRONG_NETWORK && (
+          <div className={"flex flex-col w-48"}>
+            <span className="text-red-600 text-xs w-48 mt-5">
+              {error.message}
+            </span>
           </div>
         )}
       </div>
