@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { ethers } from "ethers";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import web3Connection, { Errors } from "../libs/web3Connector";
 
 type MenuProps = {

@@ -1,5 +1,4 @@
 import React from "react";
-import Menu from "../components/Menu";
 
 const About = () => {
   return (
@@ -14,7 +13,7 @@ const About = () => {
         <sub>1</sub>,a<sub>2</sub>,a<sub>3</sub>,b<sub>1</sub>,b<sub>2</sub>,b
         <sub>3</sub>,X,Y,Z.
       </span>
-      <img src="/images/equation.png" />
+      <img src="/images/equation.png" alt="equation" />
       <span className="text-left">
         The complicated formula tells you how these symmetries interact with
         each other. For example if you do symmetry a<sub>1</sub> followed by b

@@ -1,8 +1,6 @@
 import { ethers } from "ethers";
 import abi from "../smart-contract/abi.json";
-import Menu from "../components/Menu";
 import { useEffect, useState } from "react";
-import web3Connection from "../libs/web3Connector";
 import { getEtherscanUrl, getOpenseaUrl } from "../libs/utils";
 
 const contract = "0xc7dc463dc36196aa725f14950967a01269ea436f";
@@ -67,7 +65,7 @@ const Home: React.FC<HomeProps> = ({ provider }) => {
 
       console.log(tx);
 
-      const receipt = await tx.wait();
+      await tx.wait();
 
       setMinting(false);
       setSuccessfulTx(tx.transactionHash);
@@ -86,7 +84,7 @@ const Home: React.FC<HomeProps> = ({ provider }) => {
     <div className="flex flex-col space-y-5 justify-center items-center mt-10 font-press-start">
       <div className="w-1/2">
         <div className="flex flex-col justify-center items-center ">
-          <img src="/images/equation.png" />
+          <img alt="equation" src="/images/equation.png" />
 
           <div className="flex h-28 justify-center space-x-10 mb-10">
             {/* Change these to real images after launch */}

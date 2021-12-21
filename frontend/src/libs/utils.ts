@@ -1,7 +1,7 @@
 
 
 export const getOpenseaUrl = (network: string): string => {
-    if(network == 'rinkeby') {
+    if(network === 'rinkeby') {
         return 'https://testnets.opensea.io'
     } else {
         return 'https://opensea.io'
@@ -9,7 +9,7 @@ export const getOpenseaUrl = (network: string): string => {
 }
 
 export const getEtherscanUrl = (network: string): string => {
-    if(network == 'rinkeby') {
+    if(network === 'rinkeby') {
         return 'https://rinkeby.etherscan.io/'
     } else {
         return 'https://etherscan.io/'
