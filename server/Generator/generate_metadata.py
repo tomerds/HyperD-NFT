@@ -137,6 +137,7 @@ def clear_folder(folder):
 def build_up_metadata(coefficient_data_dict):
     metadata = []
     mathematicians = {}
+    primes = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199,211,223,227,229,233,239,241,251,257,263,269,271,277,281,283,293,307,311,313,317,331,337,347,349,353,359,367,373,379,383,389,397,401,409,419,421,431,433,439,443,449,457,461,463,467,479,487,491,499,503,509,521,523,541,547,557,563]
     # Clear folders
     clear_folder('curves')
     clear_folder('composites')
@@ -151,22 +152,22 @@ def build_up_metadata(coefficient_data_dict):
         if(mathematician in mathematicians):
             mathematicians[mathematician] = mathematicians[mathematician] + 1
         else:
-            mathematicians[mathematician] = 1
+            mathematicians[mathematician] = 0
 
         # Build up image from layers
         # Saves pngs to folders
         plot_eliptic_curve((key, coefficient_data_dict[key]))
         generate_image_from_metadata(
-            key, background, mathematician, coefficients, mathematicians[mathematician])
+            key, background, mathematician, coefficients, primes[mathematicians[mathematician]])
 
         # These will all go in attributes when uploaded to IPFS
         metadata.append({
-            "name": f'{mathematician} [{mathematicians[mathematician]}]',
+            "name": f'{mathematician} [{primes[mathematicians[mathematician]]}]',
             "image": f'../../assets/composites/{key}.png',
             "description": "These symmetrical objects live in hyperspace, beyond the 3-dimensional world that we inhabit. So it is impossible to draw pictures or make models of them. Instead, we use the powerful language of mathematics and in particular group theory to explore their properties. Each symmetrical object constructed is unique because the symmetries interact with each other in their own special way. They are special because the structures of these objects are connected to the arithmetic of elliptic curves. If you would like to explore a little bit more of the mathematical significance of these groups then these two papers are where the first groups I constructed are explained. But, be warned, you'll probably need a maths degree to understand the intricacies of these papers. A nilpotent group and its elliptic curve: non-uniformity of local zeta functions of groups, Israel J. of Math 126 (2001), 269-288. Counting subgroups in nilpotent groups and points on elliptic curves, J. Reine Angew. Math. 549 (2002) 1-21.",
             "background": background,
             "group": mathematician,
-            "index": str(mathematicians[mathematician]),
+            "index": str(primes[mathematicians[mathematician]]),
             "C[1]": str(coefficients[0]),
             "C[2]": str(coefficients[1]),
             "C[3]": str(coefficients[2]),
@@ -204,8 +205,6 @@ def mathematician_picker(number):
         return "Ramanujan"
     elif number < 3:
         return "Pythagoras"
-    elif number < 4:
-        return "Hawking"
     elif number < 5:
         return "Fibonacci"
     elif number < 7:
@@ -223,39 +222,25 @@ def mathematician_picker(number):
     elif number < 21:
         return "Al-Khwarizmi"
     elif number < 22:
-        return "Emmy Noether"
-    elif number < 23:
-        return "McAfee"
+        return "Noether"
     elif number < 24:
         return "Diophantus"
-    elif number < 25:
-        return "Nash"
     elif number < 27:
         return "Kepler"
     elif number < 31:
         return "Hypatia"
-    elif number < 34:
-        return "Maryam \nMirzakhani"
     elif number < 39:
         return "Leibniz"
-    elif number < 40:
-        return "Feynman"
     elif number < 41:
         return "Napier"
-    elif number < 42:
-        return "Tao"
     elif number < 43:
         return "Cantor"
-    elif number < 45:
-        return "Mary Jackson"
     elif number < 50:
         return "Riemann"
-    elif number < 53:
-        return "Al-Biruni"
     elif number < 58:
         return "Pascal"
     elif number < 63:
-        return "Ada Lovelace"
+        return "Lovelace"
     elif number < 67:
         return "von Neumann"
     elif number < 73:
@@ -272,24 +257,14 @@ def mathematician_picker(number):
         return "Copernicus"
     elif number < 86:
         return "Fourier"
-    elif number < 87:
-        return "Einstein"
     elif number < 88:
         return "Hilbert"
-    elif number < 89:
-        return "Avicenna"
-    elif number < 90:
-        return "Al-Haytham"
     elif number < 91:
         return "Pacioli"
     elif number < 92:
-        return "Julia \n Robinson"
+        return "Robinson"
     elif number < 93:
         return "Galois"
-    elif number < 94:
-        return "Dorothy \nVaughan"
-    elif number < 95:
-        return "Erdős"
     elif number < 96:
         return "Laplace"
     elif number < 97:
@@ -303,7 +278,7 @@ def mathematician_picker(number):
 
 
 if __name__ == "__main__":
-    coefficients_dict = generate_coefficients_dict(2)
+    coefficients_dict = generate_coefficients_dict(25)
 
     metadata = build_up_metadata(coefficients_dict)
 
