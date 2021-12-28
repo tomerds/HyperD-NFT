@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="text-s mb-10 mx-40 flex flex-col space-y-5 justify-center items-center mt-10">
+    <div className="text-s mb-10 md:mx-40 mx-10 flex flex-col space-y-5 justify-center items-center mt-10">
       <span className="text-left">
         These symmetrical objects live in hyperspace, beyond the 3-dimensional
         world that we inhabit. So it is impossible to draw pictures or make

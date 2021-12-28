@@ -30,9 +30,9 @@ const Menu: React.FC<MenuProps> = ({ setProvider, provider }) => {
   };
 
   return (
-    <div className="flex justify-between w-full px-20 font-press-start h-20">
-      <div>Hyper-D-NFT</div>
-      <div className="space-x-5">
+    <div className="flex justify-center md:justify-between w-full md:px-20 font-press-start h-20">
+      <div className=" md:text-base text-2xl">Hyper-D-NFT</div>
+      <div className="space-x-5 hidden md:inline">
         <Link className="hover:text-green-400" to="/">
           Home
         </Link>
@@ -44,7 +44,7 @@ const Menu: React.FC<MenuProps> = ({ setProvider, provider }) => {
         </a>
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex-col hidden md:flex">
         <div className="flex flex-col">
           <button
             className={`border w-48 flex-grow-0 px-5 rounded-full border-black ${

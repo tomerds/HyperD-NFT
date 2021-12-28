@@ -2,6 +2,7 @@ import { ethers } from "ethers";
 import abi from "../smart-contract/abi.json";
 import { useEffect, useState } from "react";
 import { getEtherscanUrl, getOpenseaUrl } from "../libs/utils";
+import MobileWarning from "../components/MobileWarning";
 
 const rinkebyContract = process.env
   .REACT_APP_CONTRACT_ADDRESS_RINKEBY as string;
@@ -101,7 +102,8 @@ const Home: React.FC<HomeProps> = ({ provider }) => {
 
   return (
     <div className="flex flex-col space-y-5 justify-center items-center mt-10 font-press-start">
-      <div className="w-1/2">
+      <MobileWarning />
+      <div className="w-1/2 hidden md:inline">
         <div className="flex flex-col justify-center items-center ">
           <img alt="equation" src="/images/equation.png" />
 
