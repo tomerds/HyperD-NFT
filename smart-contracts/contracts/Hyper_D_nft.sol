@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
@@ -5,9 +6,6 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
 contract HyperDimensionalNft is ERC721, ERC721Enumerable, Ownable {
-    // TODO: Think about how you want to ensure the drop is proveably not editable
-    // string public PROVENANCE;
-
     bool public saleIsActive = false;
     string private _baseURIextended;
 
