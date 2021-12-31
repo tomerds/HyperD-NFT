@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="text-s mb-10 md:mx-40 mx-10 flex flex-col space-y-5 justify-center items-center mt-10">
+    <div className="font-mono text-s mb-10 md:mx-40 mx-10 flex flex-col space-y-5 justify-center items-center mt-10">
       <span className="text-left">
         These symmetrical objects live in hyperspace, beyond the 3-dimensional
         world that we inhabit. So it is impossible to draw pictures or make
@@ -29,18 +29,18 @@ const About = () => {
         <br />
         <br />
         Each symmetrical object constructed above is unique because the
-        symmetries interact with each other in their own special way. Often
-        these interactions are controlled by the numbers in the date of birth of
-        the person after whom the symmetrical object is named. They are special
-        because the structures of these objects are connected to the arithmetic
-        of elliptic curves. Trying to understand solutions to elliptic curves is
-        one of the big open problems in mathematics related to one of the Clay
-        Millennium Problems (The Birch-Swinnerton-Dyer Conjecture). The elliptic
-        curve associated with each group of symmetries is got by taking your
-        choice of 3 numbers [C[1], C[2], C[3]] together with a number we choose
-        C[4] and putting them into the following equation:
+        symmetries interact with each other in their own special way. They are
+        special because the structures of these objects are connected to the
+        arithmetic of elliptic curves. Trying to understand solutions to
+        elliptic curves is one of the big open problems in mathematics related
+        to one of the Clay Millennium Problems (The Birch-Swinnerton-Dyer
+        Conjecture). The elliptic curve associated with each group of symmetries
+        is got by taking the 4 numbers C[1], C[2], C[3] and C[4] and putting
+        them into the following equation:
       </span>
-      <span>Y2+C[1]XY+C[3]Y=X3+C[2]X2+C[4]X.</span>
+      <span>
+        Y<sup>2</sup>+C[1]XY+C[3]Y=X<sup>3</sup>+C[2]X<sup>2</sup>+C[4]X.
+      </span>
       <span className="text-left">
         If you would like to explore a little bit more of the mathematical
         significance of these groups then these two papers are where the first

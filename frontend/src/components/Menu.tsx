@@ -30,8 +30,8 @@ const Menu: React.FC<MenuProps> = ({ setProvider, provider }) => {
   };
 
   return (
-    <div className="flex justify-center md:justify-between w-full md:px-20 font-press-start h-20">
-      <div className=" md:text-base text-2xl">Hyper-D-NFT</div>
+    <div className="flex justify-center md:justify-between w-full md:px-10 lg:px-20 font-press-start h-20">
+      <div className="md:text-base text-2xl md:w-48">Hyper-D-NFT</div>
       <div className="space-x-5 hidden md:inline">
         <Link className="hover:text-green-400" to="/">
           Home

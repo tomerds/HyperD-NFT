@@ -10,6 +10,8 @@ const rinkebyContract = process.env
 const mainnetContract = process.env
   .REACT_APP_CONTRACT_ADDRESS_MAINNET as string;
 
+const isLive = process.env.REACT_APP_IS_LIVE_ON_MAINNET as string;
+
 type HomeProps = {
   provider: any;
 };
@@ -100,12 +102,21 @@ const Home: React.FC<HomeProps> = ({ provider }) => {
     console.log(successfulTx);
   }, [successfulTx]);
 
+  if (isLive !== "true") {
+    return (
+      <div className="flex flex-col w-full px-20 justify-center items-center font-press-start text-3xl h-screen">
+        <h2>COMING</h2>
+        <h2>SOON</h2>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col space-y-5 justify-center items-center mt-10 font-press-start">
       <MobileWarning />
       <div className="w-1/2 hidden md:inline">
         <div className="flex flex-col justify-center items-center ">
-          <img alt="equation" src="/images/equation.png" />
+          <img alt="equation" src="/images/equation.png" className="my-10" />
 
           <div className="flex h-28 justify-center space-x-10 mb-10">
             {/* Change these to real images after launch */}
@@ -208,17 +219,18 @@ const Home: React.FC<HomeProps> = ({ provider }) => {
 
         <div className="mt-20">
           <span className="text-xs">
-            People have stars bought stars, craters on the moon, even
-            comets...but how about owning a symmetrical object in hyperspace.
-            Marcus du Sautoy has discovered some significant new symmetrical
-            objects but they currently have no owners. For 0.0318 ETH you can
-            have one of these new symmetrical object named after significant
-            mathematicians of the past. A portion of the money raised will be
-            donated to Common Hope, an educational charity supporting and
-            empowering children and their families in Guatemala through
-            education. You will receive a unique symmetrical object immortalized
-            as an nft. Early supporters will be able to trade in these first
-            generation objects for future naming rights.
+            People have staked a claim on stars, new species of animals, craters
+            on the moon, even comets... but how about owning a symmetrical
+            object in hyperspace. Marcus du Sautoy has discovered some
+            significant new symmetrical objects but they currently have no
+            owners. For 0.0318 ETH you can have one of these new symmetrical
+            object named after a significant mathematician of the past. Which
+            one will you get? A portion of the money raised will be donated to
+            Common Hope, an educational charity supporting and empowering
+            children and their families in Guatemala through education. You will
+            receive a unique symmetrical object immortalized as an nft. Early
+            supporters will be able to trade in these first generation objects
+            for future naming rights.
           </span>
         </div>
 

@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Menu from "./components/Menu";
+import Footer from "./components/Footer";
 
 function App() {
   const [provider, setProvider] = useState<any>(undefined);
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home provider={provider} />} />
         <Route path="about" element={<About />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

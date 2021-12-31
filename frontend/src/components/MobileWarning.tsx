@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const MobileWarning: React.FC = () => {
   return (
-    <div className="md:hidden flex flex-col font-press-start space-y-10 px-5">
+    <div className="md:hidden flex flex-col font-press-start space-y-10 px-5 mt-20 mb-20">
       <p className="text-lg">Please use a desktop to mint a Hyper D NFT</p>
 
       <p className="text-lg">
