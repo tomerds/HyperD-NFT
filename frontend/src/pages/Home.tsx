@@ -3,6 +3,7 @@ import abi from "../smart-contract/abi.json";
 import { useEffect, useState } from "react";
 import { getEtherscanUrl, getOpenseaUrl } from "../libs/utils";
 import MobileWarning from "../components/MobileWarning";
+import { Link } from "react-router-dom";
 
 const rinkebyContract = process.env
   .REACT_APP_CONTRACT_ADDRESS_RINKEBY as string;
@@ -107,6 +108,12 @@ const Home: React.FC<HomeProps> = ({ provider }) => {
       <div className="flex flex-col w-full px-20 justify-center items-center font-press-start text-3xl h-screen">
         <h2>COMING</h2>
         <h2>SOON</h2>
+        <Link
+          to="/about"
+          className="text-xs mt-10 underline text-gray-400 hover:text-gray-500 md:hidden"
+        >
+          Learn More
+        </Link>
       </div>
     );
   }

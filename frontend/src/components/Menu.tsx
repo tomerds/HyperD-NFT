@@ -39,9 +39,21 @@ const Menu: React.FC<MenuProps> = ({ setProvider, provider }) => {
         <Link className="hover:text-cyan-400" to="/About">
           About
         </Link>
-        <a className="hover:text-purple-500" href="https://opensea.io">
-          Opensea
-        </a>
+        {isLive === "true" && (
+          <a className="hover:text-purple-500" href="https://opensea.io">
+            Opensea
+          </a>
+        )}
+        {isLive !== "true" && (
+          <a
+            className="hover:text-purple-500"
+            href="https://discord.gg/3BzjsjAdc7"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Discord
+          </a>
+        )}
       </div>
 
       <div className="flex-col hidden md:flex">
