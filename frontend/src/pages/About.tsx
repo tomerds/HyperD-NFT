@@ -1,8 +1,20 @@
 import React from "react";
 
+const isLive = process.env.REACT_APP_IS_LIVE_ON_MAINNET as string;
+
 const About = () => {
   return (
     <div className="font-mono text-s mb-10 md:mx-40 mx-10 flex flex-col space-y-5 justify-center items-center mt-10">
+      {isLive !== "true" && (
+        <span className="text-left">
+          There have been NFTs of apes, cats, punks and NBA top shots. But here
+          is the first mathematical NFTs. Launching soon: your chance to own the
+          NFT of a unique symmetrical object living in hyperspace. We will soon
+          be giving you the chance to mint one of a a limited edition of 1729 of
+          these NFTs. Each object will be named after one of the world’s great
+          mathematicians. Which mathematician will you get?
+        </span>
+      )}
       <span className="text-left">
         These symmetrical objects live in hyperspace, beyond the 3-dimensional
         world that we inhabit. So it is impossible to draw pictures or make

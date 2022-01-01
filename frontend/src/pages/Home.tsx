@@ -148,17 +148,18 @@ const Home: React.FC<HomeProps> = ({ provider }) => {
                 can view the details of your objects on{" "}
                 {/* TODO: Make sure this to env var or something */}
                 <a
-                  href={`${getOpenseaUrl("rinkeby")}/${
-                    address ? address : "account"
-                  }`}
+                  href={`${getOpenseaUrl(
+                    isLive === "true" ? "mainnent" : "rinkeby"
+                  )}/${address ? address : "account"}`}
                   className="underline hover:text-purple-500 "
                 >
                   OpenSea
                 </a>{" "}
                 or check out the{" "}
-                {/* TODO: Make sure this to env var or something */}
                 <a
-                  href={`${getEtherscanUrl("rinkeby")}/${successfulTx}`}
+                  href={`${getEtherscanUrl(
+                    isLive === "true" ? "mainnent" : "rinkeby"
+                  )}/${successfulTx}`}
                   className="underline hover:text-green-400"
                 >
                   transaction
