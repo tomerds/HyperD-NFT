@@ -12,7 +12,18 @@ const About = () => {
           unique symmetrical object living in hyperspace. We will soon be giving
           you the chance to mint from a limited edition of 1729 of these NFTs.
           Each object will be named after one of the world’s great
-          mathematicians. Which mathematician will you get?
+          mathematicians. Which mathematician will you get? The money raised
+          will be donated to{" "}
+          <a
+            href="https://www.commonhope.org/"
+            target="_blank"
+            rel="noreferrer"
+            className="cursor-pointer text-gray-400 hover:text-gray-500 underline"
+          >
+            Common Hope
+          </a>
+          , an educational charity supporting and empowering children and their
+          families in Guatemala through education
         </span>
       )}
       <span className="text-left">

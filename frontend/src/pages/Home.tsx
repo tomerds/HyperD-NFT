@@ -110,7 +110,7 @@ const Home: React.FC<HomeProps> = ({ provider }) => {
         <h2>SOON</h2>
         <Link
           to="/about"
-          className="text-xs mt-10 underline text-gray-400 hover:text-gray-500 md:hidden"
+          className="text-xs mt-10 underline text-gray-400 hover:text-gray-500 md:hidden cursor-pointer"
         >
           Learn More
         </Link>
